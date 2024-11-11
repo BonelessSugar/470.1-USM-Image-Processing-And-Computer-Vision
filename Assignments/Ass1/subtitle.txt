@@ -1,2 +1,0 @@
-00:00:02-00:00:07 "this is the first sentence!"
-00:00:09-00:00:11 "this is the second!"
