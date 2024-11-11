@@ -1,0 +1,23 @@
+# Pseudo-code for CNN Training Phase
+Prepare traing_set, val_set
+design your network
+select the optimizer and loss_function
+
+for epoch in range(max_epochs):
+    for train_batch_data, train_batch_labels in training_set:
+        predictions = forward_pass(network, train_batch_data)
+        loss = loss_function(predictions, train_batch_labels)
+        
+        gradients = backward_pass(loss, network)
+        update_weights(network, gradients, optimizer)
+        
+    if epoch % 10 == 0:    
+        for val_batch_data, val_batch_labels in data_loader(val_set, batch_size):
+            predictions = forward_pass(network, val_batch_data)
+
+            val_loss = loss_function(predictions, val_batch_labels)
+            val_accuracy = evaluate(predictions, val_batch_labels)
+            
+            print("Validation Loss:", val_loss, "Accuracy:", val_accuracy)
+
+save_model(network, 'final_model.pth')

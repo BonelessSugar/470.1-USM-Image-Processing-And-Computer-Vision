@@ -1,0 +1,25 @@
+# Pseudo-code for CNN Test Phase
+Prepare test_set
+Load the trained model
+
+# Initialize variables to track performance
+total_correct_predictions = 0
+total_samples = 0
+
+# Begin testing loop
+for batch_data, batch_labels in test_data:
+    # Perform a forward pass to get predictions
+    predictions = model.predict(batch_data)
+    
+    # Compare predictions with the true labels
+    correct_predictions = count_correct_predictions(predictions, batch_labels)
+    
+    # Update tracking variables
+    total_correct_predictions += correct_predictions
+    total_samples += len(batch_labels)
+
+# Calculate accuracy of the model on the test set
+accuracy = (total_correct_predictions / total_samples) * 100
+
+# Display the accuracy
+print("Accuracy on test data:", accuracy, "%")
